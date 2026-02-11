@@ -98,6 +98,7 @@ cd real-time-vehicle-collision-detection
 pip install -r requirements.txt
 python VCD2.py
 
+-----
 
 🔮 Future Improvements
 Improve custom model dataset size for higher accuracy
