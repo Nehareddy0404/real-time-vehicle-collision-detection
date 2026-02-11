@@ -96,7 +96,8 @@ The lower accuracy of the manually trained model may be due to limited dataset s
 git clone https://github.com/Nehareddy0404/real-time-vehicle-collision-detection.git
 cd real-time-vehicle-collision-detection
 pip install -r requirements.txt
-python VCD2.py```
+python VCD2.py
+```
 
 -----
 
