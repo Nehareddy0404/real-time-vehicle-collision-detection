@@ -1,40 +1,106 @@
-# Vehicle-Collision-Detection-System
+# 🚗 Vehicle Collision Detection System
 
-## Aim
+## 🎯 Project Aim
 
-The Aim of this project is to create a device that can capture dashcam footage and alert the driver in case of a risk of collision.
-The Vehicle Collision Detection System must be able to :
+The goal of this project is to develop a real-time vehicle collision detection system that processes dashcam footage and alerts the driver when there is a risk of collision.
 
-•	Capture real-time vehicle footage.
+The system is designed to:
 
-•	Recognize vehicles and other obstacles.
+- Capture real-time vehicle footage
+- Detect vehicles and obstacles using object detection models
+- Trigger an alert when an object approaches within a defined risk zone
 
-•	Alert the driver if an obstacle comes too close.
+---
 
-## The Image Recognition Algorithms used
-Three training models used in this project are the inbuilt Yolo weights, the manually generated Yolo weights using around 600 vehicles and the Tiny Yolo Algorithm. Each of these models are different in terms of speed and accuracy.
+## 🧠 Object Detection Models Used
 
-YOLO (You Only Look Once) is an object detection algorithm which targets real time applications. This algorithm is very fast and can work on a video with high frame rates per second.  YOLO has 5 different versions (as of March 2021). 
+This project compares three YOLO-based detection models:
 
-Yolo works by first dividing an object into a grid format and localising objects in a particular cell of the grid. 
+1. **Pre-trained YOLO (Scaled In-Built Weights)**
+2. **Custom-trained YOLO model** (trained on ~600 vehicle images)
+3. **Tiny YOLO model** (optimized for speed)
+
+### About YOLO
+
+YOLO (You Only Look Once) is a real-time object detection algorithm designed for high-speed inference. It works by dividing an image into a grid and predicting bounding boxes and class probabilities for each cell.
+
+YOLO is optimized for:
+- Real-time video processing
+- High frame-per-second performance
+- Efficient object localization
+
+---
+
+## 📊 Model Evaluation
+
+The models were evaluated using **1000 test vehicle images**  
+(Some images contained multiple vehicles.)
+
+### Observed Results:
+
+- **Pre-trained YOLO**
+  - Detected: 1256 vehicles
+  - Higher recall
+  - More false positives
+
+- **Custom-trained YOLO (600 images)**
+  - Detected: 1004 vehicles
+  - Balanced detection
+  - Fewer false positives compared to pre-trained
+
+- **Tiny YOLO**
+  - Detected: 401 vehicles
+  - Faster inference
+  - Lower detection accuracy
+
+---
+
+## 📈 Performance Comparison
+
+### Vehicle Detection Results
+
+![Model Comparison Chart](https://user-images.githubusercontent.com/72432304/121334585-d5efbd00-c92a-11eb-8bbf-890187214a88.png)
+
+---
+
+## 🔍 Result Analysis
+
+Using the scaled pre-trained YOLO model:
+
+- Vehicles are detected in real time.
+- If an object approaches rapidly within the defined Region of Interest (front view), the system triggers an alert.
+- The system demonstrates sufficient speed and accuracy for real-time collision risk monitoring.
+
+### Accuracy Insights
+
+- The pre-trained YOLO model achieved the highest detection count but produced more false positives.
+- The custom-trained model showed fewer false positives but slightly lower detection performance.
+- Tiny YOLO significantly reduced detection count, prioritizing speed over accuracy.
+
+The lower accuracy of the manually trained model may be due to limited dataset size (~600 images) and varying video clarity.
+
+---
+
+## ⚙️ Tech Stack
+
+- Python
+- YOLO (Object Detection)
+- OpenCV
+- NumPy
+
+---
+
+## 🚀 How to Run
+
+```bash
+git clone https://github.com/Nehareddy0404/real-time-vehicle-collision-detection.git
+cd real-time-vehicle-collision-detection
+pip install -r requirements.txt
+python VCD2.py
 
 
-## Charts/Tables
-
-For this Project, 3 Yolo models are being compared. The Scaled In-Built Yolo, the manually made Yolo Model using 600 vehicle images and the Tiny Yolo Algorithm. 
-Out of 1000 test vehicle photos (some images have more than 1 vehicle per image) the following observations were observed
-
-![image](https://user-images.githubusercontent.com/72432304/121334585-d5efbd00-c92a-11eb-8bbf-890187214a88.png)
-
-
-## Result Analysis
-
-With the scaled Yolo algorithm, vehicles are determined. If an object is approaching at a quick relative speed within the region of interest (front of the vehicle) an alert is sounded. The speed and accuracy of the project is sufficient to prevent accidents. 
-Accuracy
-The accuracy of the pre-trained model is much more. However, it shows more false positives than our model. 
-In a test of 1000 vehicle pictures, the pre-trained model showed 1256 vehicles. This could because of multiple vehicles appearing in a single picture. However, for our model, out of 1000 vehicle pictures, 1004 were shown. The tiny Model showed only 401 vehicles out of 1256 vehicles. 
-
-The low accuracy of manually trained models could be due to the low clarity of the video. However, the pre-trained model works well for the given clarity of the video.
-
-![image](https://user-images.githubusercontent.com/72432304/121334369-a5a81e80-c92a-11eb-800c-9e66573f3c47.png)
-
+🔮 Future Improvements
+Improve custom model dataset size for higher accuracy
+Implement object tracking across frames
+Add collision probability scoring
+Deploy as an embedded real-time device system
