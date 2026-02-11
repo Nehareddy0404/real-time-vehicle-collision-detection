@@ -101,8 +101,8 @@ python VCD2.py
 
 -----
 
-🔮 Future Improvements
-Improve custom model dataset size for higher accuracy
-Implement object tracking across frames
-Add collision probability scoring
-Deploy as an embedded real-time device system
+**🔮 Future Improvements**
+- Improve custom model dataset size for higher accuracy
+- Implement object tracking across frames
+- Add collision probability scoring
+- Deploy as an embedded real-time device system
