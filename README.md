@@ -1,4 +1,4 @@
-# 🚗 Vehicle Collision Detection System
+# 🚗 Real Time Vehicle Collision Detection System
 
 ## 🎯 Project Aim
 
